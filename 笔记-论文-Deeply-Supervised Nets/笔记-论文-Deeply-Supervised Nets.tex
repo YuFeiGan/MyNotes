@@ -1,0 +1,49 @@
+\documentclass{article}
+\usepackage{CJK}
+%\usepackage{geometry}
+%\geometry{left=2.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm}
+\begin{document}
+\begin{CJK}{UTF8}{gbsn}
+
+\title{笔记-论文-Deeply-Supervised Nets}
+%\author{甘宇飞}
+%\date{\today}
+\maketitle
+\section{Introduction}
+此文在CNN的基础上对hidden layer进行supervision。获得了好的效果 
+\section{算法说明}
+\subsection{符号规定}
+input training data: 
+$S=\{(X_i,y_i),i=1,\dots,N\}$ 其中$X_i\in\mathcal{R}^n$表示原始数据，$y_i\in\{1,\dots,K\}$表示对应的label。\\
+网络层数：$M$ \\
+学习到的filters/weights：$W^{(m)},m=1,\dots\,M$ \\
+$m-1$层产生的feature map：$Z{(m-1)}$ \\
+convolved/filtered responses：$Q^{(m)}$ \\
+Pooling function：$f()$ \\
+输出层的SVM weights：$\mathrm{w}^{(out)}$
+\subsection{公式说明}
+对每一层$m=1,\dots\,M$有：
+\begin{equation} Z^{(m)}=f(Q^{(m)}),~and~Z^{(0)}\equiv X, \end{equation}
+\begin{equation} Q^{(m)}=W^{(m)}\ast Z^{(m-1)}, \end{equation}
+合并所有的层的weights有：
+$$W=(W^{(1)},\dots,W^{(M)}),$$
+对于each hidden layer有：
+$$\mathrm{w}=(\mathrm{w}^{(1)},\dots,\mathrm{w}^{(M-1)}),$$
+
+
+本文的核心motivation就是在hidden layer加入约束
+
+
+总体上的目标函数是：
+\begin{equation}
+ \|\mathrm{w}^{(out)}\|^2+\mathcal{L}(W,\mathrm{w}^{(out)})+\sum^{M-1}_{m=1}\alpha_m\left[\|\mathrm{w}^{(out)}\|^2+\ell(W,\mathrm{w}^{(m)})-\gamma\right]_+, \end{equation}
+这其中：
+\begin{equation} 
+\mathcal{L}(W,\mathrm{w}^{(out)})=\sum_{y_k\neq y}\left[1-\langle\mathrm{w}^{(out)},\phi(Z^{(M)},y)-\phi(Z^{(M)},y_k)\rangle\right]^2_+
+\end{equation}
+\begin{equation} 
+\ell(W,\mathrm{w}^{(m)})=\sum_{y_k\neq y}\left[1-\langle\mathrm{w}^{(m)},\phi(Z^{(m)},y)-\phi(Z^{(m)},y_k)\rangle\right]^2_+
+\end{equation}
+对于这个目标函数有如下解释：
+\end{CJK}
+\end{document}

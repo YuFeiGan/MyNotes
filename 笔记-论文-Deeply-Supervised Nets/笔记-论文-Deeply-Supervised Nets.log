@@ -1,0 +1,215 @@
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.9.17)  27 OCT 2014 22:54
+entering extended mode
+ restricted \write18 enabled.
+ file:line:error style messages enabled.
+ %&-line parsing enabled.
+**"笔记-论文-Deeply-Supervised Nets.tex"
+(./笔记-论文-Deeply-Supervised Nets.tex
+LaTeX2e <2014/05/01>
+Babel <3.9k> and hyphenation patterns for 78 languages loaded.
+(/usr/local/texlive/2014/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2007/10/19 v1.4h Standard LaTeX document class
+(/usr/local/texlive/2014/texmf-dist/tex/latex/base/size10.clo
+File: size10.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
+)
+\c@part=\count79
+\c@section=\count80
+\c@subsection=\count81
+\c@subsubsection=\count82
+\c@paragraph=\count83
+\c@subparagraph=\count84
+\c@figure=\count85
+\c@table=\count86
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+)
+(/usr/local/texlive/2014/texmf-dist/tex/latex/cjk/texinput/CJK.sty
+Package: CJK 2012/05/07 4.8.3
+
+(/usr/local/texlive/2014/texmf-dist/tex/latex/cjk/texinput/mule/MULEenc.sty
+Package: MULEenc 2012/05/07 4.8.3
+)
+(/usr/local/texlive/2014/texmf-dist/tex/latex/cjk/texinput/CJK.enc
+File: CJK.enc 2012/05/07 4.8.3
+)
+LaTeX Info: Redefining \selectfont on input line 755.
+\CJK@indent=\box26
+)
+(./笔记-论文-Deeply-Supervised Nets.aux)
+\openout1 = `"笔记-论文-Deeply-Supervised Nets.aux"'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for C00/song/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for C05/song/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for C09/song/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for C10/song/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for C20/song/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for C19/song/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for C40/song/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for C42/song/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for C43/song/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for C50/song/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for C52/song/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for C49/song/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for C60/mj/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for C61/mj/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for C63/mj/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for C64/mj/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for C65/mj/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for C70/song/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for C31/song/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for C32/song/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for C33/song/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for C34/song/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for C35/song/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for C36/song/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for C37/song/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for C80/song/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for C81/song/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for C01/song/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for C11/song/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for C21/song/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for C41/song/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for C62/song/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+
+(/usr/local/texlive/2014/texmf-dist/tex/latex/cjk/texinput/UTF8/UTF8.bdg
+File: UTF8.bdg 2012/05/07 4.8.3
+)
+(/usr/local/texlive/2014/texmf-dist/tex/latex/cjk/texinput/UTF8/UTF8.enc
+File: UTF8.enc 2012/05/07 4.8.3
+)
+(/usr/local/texlive/2014/texmf-dist/tex/latex/cjk/texinput/UTF8/UTF8.chr
+File: UTF8.chr 2012/05/07 4.8.3
+)
+LaTeX Font Info:    Try loading font information for C70+gbsn on input line 11.
+
+
+(/usr/local/texlive/2014/texmf-dist/tex/latex/cjk/texinput/UTF8/c70gbsn.fd
+File: c70gbsn.fd 2012/05/07 4.8.3
+)
+(/usr/local/texlive/2014/texmf-dist/tex/latex/cjk/texinput/UTF8/c70gbsn.fdx
+File: c70gbsn.fdx 2012/05/07 4.8.3
+)
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <12> on input line 11.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 11.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 11.
+
+
+LaTeX Warning: No \author given.
+
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 17.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 17.
+[1
+
+{/usr/local/texlive/2014/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
+[2] (./笔记-论文-Deeply-Supervised Nets.aux) ) 
+Here is how much of TeX's memory you used:
+ 1369 strings out of 493117
+ 16178 string characters out of 6135433
+ 71259 words of memory out of 5000000
+ 4844 multiletter control sequences out of 15000+600000
+ 21439 words of font info for 75 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 23i,6n,28p,232b,309s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/local/texlive/2014/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2014/texmf
+-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2014/texmf-
+dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2014/texmf-d
+ist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2014/texmf-dis
+t/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2014/texmf-dist/
+fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2014/texmf-dist/fo
+nts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2014/texmf-dist/font
+s/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2014/texmf-dist/fonts/
+type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2014/texmf-dist/fonts/typ
+e1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2014/texmf-dist/fonts/type
+1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/
+arphic/gbsnu/gbsnu30.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/arphic
+/gbsnu/gbsnu4e.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/arphic/gbsnu
+/gbsnu4f.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu
+51.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu52.pfb
+></usr/local/texlive/2014/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu53.pfb></usr
+/local/texlive/2014/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu54.pfb></usr/local
+/texlive/2014/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu57.pfb></usr/local/texli
+ve/2014/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu59.pfb></usr/local/texlive/201
+4/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu5b.pfb></usr/local/texlive/2014/texm
+f-dist/fonts/type1/arphic/gbsnu/gbsnu5c.pfb></usr/local/texlive/2014/texmf-dist
+/fonts/type1/arphic/gbsnu/gbsnu5e.pfb></usr/local/texlive/2014/texmf-dist/fonts
+/type1/arphic/gbsnu/gbsnu5f.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1
+/arphic/gbsnu/gbsnu60.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/arphi
+c/gbsnu/gbsnu62.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/arphic/gbsn
+u/gbsnu63.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/arphic/gbsnu/gbsn
+u65.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu66.pf
+b></usr/local/texlive/2014/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu67.pfb></us
+r/local/texlive/2014/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu68.pfb></usr/loca
+l/texlive/2014/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu6b.pfb></usr/local/texl
+ive/2014/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu6c.pfb></usr/local/texlive/20
+14/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu75.pfb></usr/local/texlive/2014/tex
+mf-dist/fonts/type1/arphic/gbsnu/gbsnu76.pfb></usr/local/texlive/2014/texmf-dis
+t/fonts/type1/arphic/gbsnu/gbsnu78.pfb></usr/local/texlive/2014/texmf-dist/font
+s/type1/arphic/gbsnu/gbsnu79.pfb></usr/local/texlive/2014/texmf-dist/fonts/type
+1/arphic/gbsnu/gbsnu7b.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/arph
+ic/gbsnu/gbsnu7e.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/arphic/gbs
+nu/gbsnu7f.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/arphic/gbsnu/gbs
+nu83.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu88.p
+fb></usr/local/texlive/2014/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu89.pfb></u
+sr/local/texlive/2014/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu8b.pfb></usr/loc
+al/texlive/2014/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu8f.pfb></usr/local/tex
+live/2014/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu91.pfb></usr/local/texlive/2
+014/texmf-dist/fonts/type1/arphic/gbsnu/gbsnuff.pfb>
+Output written on "笔记-论文-Deeply-Supervised Nets.pdf" (2 pages, 213190 b
+ytes).
+PDF statistics:
+ 200 PDF objects out of 1000 (max. 8388607)
+ 147 compressed objects within 2 object streams
+ 0 named destinations out of 1000 (max. 500000)
+ 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+
