@@ -7,19 +7,20 @@
 \begin{document}
 \begin{CJK}{UTF8}{gbsn}
 
-\title{笔记-论文-Deeply-Supervised Nets}
+%\title{笔记-论文-Deeply-Supervised Nets}
 %\author{甘宇飞}
 %\date{\today}
-\maketitle
+%\maketitle
 \section{Introduction}
 此文在CNN的基础上对hidden layer进行supervision。实际上是对CNN的隐层采用squared hinge loss （L2 Loss）使得CNN的隐层具有discriminative。
+本文的方法有一个先验的经验，那就是如果能够让特征discriminative，则分类效果一定就好。（不过这一点我觉得不能完全认同）
 \section{算法说明}
 \subsection{符号规定}
 input training data: 
 $S=\{(X_i,y_i),i=1,\dots,N\}$ 其中$X_i\in\mathcal{R}^n$表示原始数据，$y_i\in\{1,\dots,K\}$表示对应的label。\\
 网络层数：$M$ \\
 学习到的filters/weights：$W^{(m)},m=1,\dots\,M$ \\
-$m-1$层产生的feature map：$Z{(m-1)}$ \\
+$m-1$层产生的feature map：$Z^{(m-1)}$ \\
 convolved/filtered responses：$Q^{(m)}$ \\
 Pooling function：$f()$ \\
 输出层的SVM weights：$\mathrm{w}^{(out)}$
@@ -32,7 +33,7 @@ Pooling function：$f()$ \\
 $$W=(W^{(1)},\dots,W^{(M)}),$$
 对于each hidden layer有：
 $$\mathrm{w}=(\mathrm{w}^{(1)},\dots,\mathrm{w}^{(M-1)}),$$
-{\color{red}\%\%}这个w是怎么来的我目前还没完全明白，只知道与hidden layer训练出来的feature是有关系的。
+{\color{red}\%\%}这个w是怎么来的我目前还没完全确定，文章写的不是十分清楚，智能说一下自己的理解，这个w很可能是将$Z^{(m-1)}$作为输入，输出为各不相同的label到L2SVM中，也就是说利用svm将一层的$Z$完全区分开来，这样学到一个对应的w。因此在训练之前这个w是未知的，他与每一次filters update时一起update，其update方法与CNN+SVM的策略相同，在《Deep Learning using Linear Support Vector Machines》中有详细介绍（本文后面附有链接）。
 
 {\color{red}本文的核心motivation就是在hidden layer加入约束}
 
@@ -51,8 +52,9 @@ $$\mathrm{w}=(\mathrm{w}^{(1)},\dots,\mathrm{w}^{(M-1)}),$$
 \begin{itemize}
 \item\eqref{eq:3}左边两项$\|\mathrm{w}^{(out)}\|^2$和$\mathcal{L}(W,\mathrm{w}^{(out)})$与传统CNN相似，不同的是在这里不是用传统CNN的softmax做分类器而是用SVM。
 \item\eqref{eq:3}右边一项括号中的$\|\mathrm{w}^{(out)}\|^2$和$\ell(W,\mathrm{w}^{(m)})$是本文中提出的方法
+\item从整体上来看这个函数，一方面它照顾到了经典CNN中误差反向传导所必须的自下至上的传递结构，另一方面还使得filters之间满足response discriminative的特性。
 \end{itemize}
-
+未完待续。。。。
 
 
 
