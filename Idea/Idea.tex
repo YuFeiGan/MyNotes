@@ -1,0 +1,112 @@
+\documentclass{article}
+\usepackage{CJK}
+\usepackage{color}
+\usepackage{amsmath}
+\usepackage{geometry}
+\usepackage{booktabs}
+%\geometry{left=0.5cm,right=0.5cm,top=0.5cm,bottom=0.5cm}
+\begin{document}
+\begin{CJK}{UTF8}{gbsn}
+%\LARGE
+\title{Idea}
+%\author{甘宇飞}
+%\date{\today}
+%\maketitle
+
+{
+\color{blue}
+\section*{约定}
+\subsection{在DL中靠近输入图像的一层或多层称之为底层}
+\subsection{靠近输出层的一层或多层为顶层/分类层}
+\subsection{相对地既不靠近输入层又不靠近输出层的一层或多层称为中间层}
+}
+
+\section{深度网络研究现状(for classification)}
+\subsection{面向底层}
+加强最底层的特征的表征能力\\
+\textbf{代表：}各种pre-training方法，auto-encoding，Multi-view\cite{sermanet2013overfeat}等等。
+\subsection{面向顶层}
+加强CNN的分类能力\\
+\textbf{代表：}softmax代替Logistic Regression，后又有人用SVM代替softmax\cite{tang2013deep}
+\subsection{面向中间层}
+加强中间层的高级语意特征\\
+\textbf{代表：}Network in Network\cite{NIN}，Maxout networks\cite{goodfellow2013maxout}，与Part based model组合\cite{ouyang2013joint}(有篇文章甚至说PBM就是CNN\cite{zeiler2011adaptive})
+\subsection{面向BP}
+加强特征的discriminative特性\\
+\textbf{代表：}对中间层加强discriminative\cite{lee2014deeply}
+\subsection{多层结构}
+只利用多层结构不考虑降维，但保留了卷积操作。\\
+\textbf{代表：}PCANet\cite{chan2014pcanet}
+\section{可供改进的方向}
+\subsection{自学习结构(by He)}
+多重结构相互组合从其中选择效果好的结构。\\
+\subsubsection{难点：}
+1、各个模块之间的特征传递形式不同（例如统计模型的参数不能像CNN那样做卷积）\\
+2、判断孰优孰劣的条件（如果要训练网络用何种方法调整网络参数？）\\
+\subsubsection{方案：}
+%Deep learning一般误差是由最后一层反向传播到前面的层，也就是说只考虑到的最后的误差。尝试在中间层加上loss项以提高效果。\\
+多层的网络结构优点是可以更好地学习特征（但目前仍然缺乏理论解释为什么多层特征学习效果会好），合理利用这种结构特点或许能够设计效果更好的分类网络。\\
+基本的分类方法概括为求基底$\rightarrow$特征映射、编码$\rightarrow$分类。而寻找基底和编码这些步骤是可以有许多替换的。例如基底可以由CNN，PCA，LDA，CS等方法学习得到，而特征映射以及编码又可以由BoW，卷积+MAXPooling，还有大量的的降维方法可以运用于这一部分。对于分类则有LR，SVM，SoftMax。\\
+对与\textbf{难点2}的解决方法：中间层如果以discriminative作为loss function（这是一种靠直觉的的干预，特征越discriminative图像分类效果越好）。\\
+%自上而下的误差传导，“实践是检验真理的唯一标准”，有更好的效果但是无法保证能够收敛到全局最优。\\
+\subsubsection{公式：}
+抽象描述：\\
+\begin{equation}\label{eq:1}
+loss=\sum^{M-1}_{m=1}\alpha_m\left[\|W^{(m)}\|^2+\ell(W^{(m)})\right]
+\end{equation}
+$\ell()$代表各层产生的loss，$\ell()$的设计反映我们需要考虑的特征属性，\\
+详细描述：\\
+1、模型采用改进的反向误差传导（Loss不仅仅由顶层产生，还又中间层以及底层的响应/特征映射产生），这里可以加入一些诸如discriminative的特征属性用来约束特征的学习。\\
+策略有很多例如：\\
+discriminative: hinge-squared-loss\cite{lee2014deeply}
+\begin{equation}\label{eq:2}
+ \|\mathrm{w}^{(out)}\|^2+\mathcal{L}(W,\mathrm{w}^{(out)})+\sum^{M-1}_{m=1}\alpha_m\left[\|\mathrm{w}^{(out)}\|^2+\ell(W,\mathrm{w}^{(m)})-\gamma\right]_+, \end{equation}
+这其中：
+\begin{equation}
+\mathcal{L}(W,\mathrm{w}^{(out)})=\sum_{y_k\neq y}\left[1-\langle\mathrm{w}^{(out)},\phi(Z^{(M)},y)-\phi(Z^{(M)},y_k)\rangle\right]^2_+
+\end{equation}
+\begin{equation} 
+\ell(W,\mathrm{w}^{(m)})=\sum_{y_k\neq y}\left[1-\langle\mathrm{w}^{(m)},\phi(Z^{(m)},y)-\phi(Z^{(m)},y_k)\rangle\right]^2_+
+\end{equation}
+以及k-nearest neighbor classier等等\\
+2、由于暂时无法解决参数传递问题，目前拟依然以卷积操作最为求特征映射的操作。（因此对于一部分用于降维的模型必须恢复出降维前的的向量）,亦即这种形式的操作予以保留\\
+\begin{equation} Z^{(m)}=f(Q^{(m)}), \end{equation}
+\begin{equation} Q^{(m)}=W^{(m)}\ast Z^{(m-1)}, \end{equation}
+3、优化方法和数据集与主流方法变化不大。\\
+梯度下降,利用\eqref{eq:1}求$\frac{\partial{loss}}{\partial{W}}$
+\subsubsection{实验}
+\begin{table}[!ht]\
+\caption{cifar-10}
+~\\
+\centering
+\begin{tabular}{rl} \toprule 
+Result	&   Method \\ \midrule
+94.00\%		&   Lessons learned from manually classifying CIFAR-10\\  \midrule
+91.78\%	&   Deeply-Supervised Nets\\  \midrule
+91.20\%	&   Network In Network\\  \midrule
+90.68\%	&   Regularization of Neural Networks using DropConnect\\  \midrule
+90.65\%	&   Maxout Networks\\   \midrule
+\textbf{64.10\%}    &   \textbf{me}\\ \bottomrule
+\end{tabular}\\
+\end{table}
+
+\begin{table}[!ht]\
+\caption{cifar-100}
+~\\
+\centering
+\begin{tabular}{rl} \toprule 
+Result	&   Method \\ \midrule
+65.43\%	&   Deeply-Supervised Nets\\  \midrule
+64.32\%	&   Network In Network\\  \midrule
+63.15\%	&   Discriminative Transfer Learning with Tree-based Priors\\  \midrule
+61.86\%	&   Improving Deep Neural Networks with Probabilistic Maxout Units\\  \midrule
+61.43\%	&   Maxout Networks\\ \bottomrule
+\end{tabular}\\
+\end{table}
+
+似乎有较快的收敛速度。还需要进一步研究$\alpha_m$的取值方法。
+
+\bibliographystyle{plain}
+\bibliography{G}
+\end{CJK}
+\end{document}
