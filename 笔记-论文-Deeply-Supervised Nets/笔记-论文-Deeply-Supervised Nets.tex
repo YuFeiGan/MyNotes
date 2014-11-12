@@ -14,6 +14,16 @@
 \section{Introduction}
 此文在CNN的基础上对hidden layer进行supervision。实际上是对CNN的隐层采用squared hinge loss （L2 Loss）使得CNN的隐层具有discriminative。
 本文的方法有一个先验的经验，那就是如果能够让特征discriminative，则分类效果一定就好。（不过这一点我觉得不能完全认同）
+
+Introduction部分指出了现在CNN存在的一些问题，觉得有必要列出来：
+\begin{itemize}
+\item 隐层的特征的 transparency 和 criminativeness 特性减少。
+\item 由 exploding and vanishing gradients 导致的训练难度
+\item 缺乏对DL算法的数学理论解释
+\item 对大量训练数据的依赖
+\item 调参复杂
+\end{itemize}
+
 \section{算法说明}
 \subsection{符号规定}
 input training data: 
@@ -56,8 +66,8 @@ $$\mathrm{w}=(\mathrm{w}^{(1)},\dots,\mathrm{w}^{(M-1)}),$$
 \end{itemize}
 未完待续。。。。
 
-
-
+\section{题外话}
+这篇文章值得注意的地方不仅仅是方法，更重要的是思路，虽然很多人认为中层监督相比普通CNN相对退化，也就是说现在主流研究还应该是用理论解释how does DL work？而不是有退回了原来的特征+聚类+分类的思路。但是我认为中层监督实际上还是存在实际应用上的价值，尤其是语意上的中层监督，可以将人工的引导引入CNN的中层，这样好处有3：（1）大量label大有用武之地（2）帮助解释中层black box（3）直觉上能够提高收敛速度。
 
 
 
