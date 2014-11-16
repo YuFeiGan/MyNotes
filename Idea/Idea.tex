@@ -4,6 +4,7 @@
 \usepackage{amsmath}
 \usepackage{geometry}
 \usepackage{booktabs}
+%\usepackage{hyperref}
 %\geometry{left=0.5cm,right=0.5cm,top=0.5cm,bottom=0.5cm}
 \begin{document}
 \begin{CJK}{UTF8}{gbsn}
@@ -27,12 +28,15 @@
 \textbf{代表：}各种pre-training方法，auto-encoding，Multi-view\cite{sermanet2013overfeat}等等。
 \subsection{面向顶层}
 加强CNN的分类能力\\
-\textbf{代表：}softmax代替Logistic Regression，后又有人用SVM代替softmax\cite{tang2013deep}
+\textbf{代表：}softmax代替Logistic Regression\cite{karpathy2014large}，后又有人用SVM代替softmax\cite{tang2013deep}\cite{nagi2012convolutional}
 \subsection{面向中间层}
-加强中间层的高级语意特征\\
-\textbf{代表：}Network in Network\cite{NIN}，Maxout networks\cite{goodfellow2013maxout}，与Part based model组合\cite{ouyang2013joint}(有篇文章甚至说PBM就是CNN\cite{zeiler2011adaptive})
+加强中间层的高级语意特征，多为卷积层干预。中间层干预在GoogLeNet中已有人提出到DSN时得到理论验证\\
+\textbf{代表：}Network in Network\cite{NIN}，Maxout networks\cite{goodfellow2013maxout}，与Part based model组合\cite{ouyang2013joint}(有篇文章甚至说PBM就是CNN\cite{zeiler2011adaptive})，GoogLeNet\cite{szegedy2014going}，DSN\cite{lee2014deeply}，以及对中层图像的重构分析\cite{zeiler2014visualizing}
+\subsection{面向Pooling}
+这一点在以前的笔记中间已经提到，MAXPooling会丢掉信息，最近Hinton也已经提到这个问题2014.11.11 http://www.reddit.com/r/MachineLearning/comments/2lmo0l/ama\_geoffrey\_hinton/\\
+\textbf{代表：}OverFeat\cite{sermanet2013overfeat}
 \subsection{面向BP}
-加强特征的discriminative特性\\
+加强特征的discriminative特性，这部分实际上有不少工作是与上面相互交叉的。\\
 \textbf{代表：}对中间层加强discriminative\cite{lee2014deeply}
 \subsection{多层结构}
 只利用多层结构不考虑降维，但保留了卷积操作。\\
@@ -56,7 +60,7 @@ loss=\sum^{M-1}_{m=1}\alpha_m\left[\|W^{(m)}\|^2+\ell(W^{(m)})\right]
 \end{equation}
 $\ell()$代表各层产生的loss，$\ell()$的设计反映我们需要考虑的特征属性，\\
 详细描述：\\
-1、模型采用改进的反向误差传导（Loss不仅仅由顶层产生，还又中间层以及底层的响应/特征映射产生），这里可以加入一些诸如discriminative的特征属性用来约束特征的学习。\\
+1、模型采用改进的反向误差传导（Loss不仅仅由顶层产生，还又中间层以及底层的响应/特征映射产生），这里可以加入一些诸如discriminative的特征属性用来约束特征的学习。这里关于$L_1$与$L_2$的相关文章探索他们的属性\cite{lee2013study}\cite{moore2011l1}\\
 策略有很多例如：\\
 discriminative: hinge-squared-loss\cite{lee2014deeply}
 \begin{equation}\label{eq:2}
@@ -73,7 +77,7 @@ discriminative: hinge-squared-loss\cite{lee2014deeply}
 \begin{equation} Z^{(m)}=f(Q^{(m)}), \end{equation}
 \begin{equation} Q^{(m)}=W^{(m)}\ast Z^{(m-1)}, \end{equation}
 3、优化方法和数据集与主流方法变化不大。\\
-梯度下降,利用\eqref{eq:1}求$\frac{\partial{loss}}{\partial{W}}$
+梯度下降,利用\eqref{eq:1}求$\frac{\partial{loss}}{\partial{W}}$，相关理论工作\cite{shamir2012stochastic}，SGD的有点有可以在线学习以及收敛速度快。
 \subsubsection{实验}
 \begin{table}[!ht]\
 \caption{cifar-10}
